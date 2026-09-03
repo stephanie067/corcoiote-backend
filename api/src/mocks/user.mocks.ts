@@ -1,4 +1,3 @@
-import { getMaxListeners } from "node:cluster";
 import type { User } from "../types/user.type.ts";
 
 const users: User[] = [{
