@@ -1,7 +1,7 @@
-import { request } from 'express';
+import { type Request, type Response } from 'express';
 import * as UserService from '../services/user.services.ts';
 
- export function getAllUsers(_request: Request, response: Response): void {
+export function getAllUsers(_request: Request, response: Response): void {
   const users = UserService.findAllUsers();
 
   response.status(200).json(users);
@@ -9,7 +9,7 @@ import * as UserService from '../services/user.services.ts';
 }
 
 export function getUserById(_request: Request, response: Response): void {
-  const id = Number (request.params.id);
+  const id = Number(_request.params.id);
 
   const users = UserService.findUserById(id);
 
