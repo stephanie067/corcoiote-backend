@@ -1,5 +1,6 @@
 {
-  "dependencies": {
-    "zod": "^4.6.5"
-  }
+ "name": "corcoiote-backend",
+ "author": "stephanie"
+
+ "scripts": {}
 }
