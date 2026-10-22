@@ -9,10 +9,7 @@
   <title>Corcoiote</title>
 </head>
 <body>
-  <h1>Corcoiote</h1>
-
-  <div>
-  </div>
+  <div></div>
 
   <!-- React. -->
   <script
@@ -69,32 +66,37 @@
     }
   ];  
 
-   const Title = () => <h1>Corcoiote</h1>;
+   const Title = (props) => { 
+    return <h1>{Faturas}</h1>;
+    }
+
+   const InvoiceRow = (props) => {
+    return <tr key={props.object.id}>
+      <th>{props.object.customer.name}</th>
+      <th>{props.object.amount}</th>
+      <th>{props.object.issueDate}</th>
+      <th>{props.object.dueDate}</th>
+      <th>{props.object.status}</th>
+    </tr>;
+   }
 
    const InvoiceTable = () => {
-    return <>
-      <table>
-        <thead>
-          <tr>
-            <th>Cliente</th>
-            <th>Valor</th>
-            <th>Data de emissão</th>
-            <th>Data de vencimento</th>
-            <th>Situação</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Construtora Meridiano</td>
-            <td>R$ 1.700,00</td>
-            <td>01/01/2023</td>
-            <td>01/02/2026</td>
-            <td>Pendente</td>
-          </tr>
-        
-        </tbody>
-      </table>
-    </>
+    return <table>
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Valor</th>
+          <th>Data de Emissão</th>
+          <th>Data de Vencimento</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {invoices.map(invoice => 
+          <InvoiceRow key={invoice.id} object={invoice} />
+        )}
+      </tbody>
+    </table>;
    }
 
   const App = () => {
@@ -106,9 +108,9 @@
 
    const root = ReactDOM.createRoot(container);
    root.render(<div>
-  <Title/>
-  <InvoiceTable/>
- </div>);
+    <Title/>
+    <InvoiceTable/>
+    </div>);
 
   </script>
 </body>
