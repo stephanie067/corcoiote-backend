@@ -1,117 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
   <meta charset="utf-8" />
   <meta name="viewport" 
   content="width=device-width, 
   initial-scale=1.0" 
   />
   <title>Corcoiote</title>
-</head>
-<body>
-  <div></div>
+  </head>
+  <body>
+    <div></div>
 
-  <!-- React. -->
-  <script
-   crossorigin 
-   src="https://unpkg.com/react@18/umd/react.development.js">
-  </script>
-  <!-- React DOM. -->
-  <script
-   crossorigin 
-   src="https://unpkg.com/react-dom@18/umd/react-dom.development.js">
-  </script>
-  <!-- Babel. -->
-  <script 
-  src="https://unpkg.com/@babel/standalone/babel.min.js">
-  </script>
-
-  <script type="text/babel">
-
-   const container = document.querySelector('div');
-
-   const invoices = [{
-    id: 1,
-    amount: 1700,
-    status: 'Pendente',
-    issueDate: '01/01/2023',
-    dueDate: '01/02/2026',
-    customer: {
-      id: 1,
-      name: 'Construtora Meridiano',
-      email: 'contato@meridiano.com.br'
-    }
-  }, {
-    id: 2,
-    amount: 2500,
-    status: 'Paga',
-    issueDate: '01/02/2023',
-    dueDate: '01/03/2026',
-      customer: {
-        id: 2,
-        name: 'Construtora Horizonte',
-        email: 'contato@horizonte.com.br'
-      }
-    }, {
-    id: 3,
-    amount: 3000,
-    status: 'Pendente',
-    issueDate: '01/03/2023',
-    dueDate: '01/04/2026',
-      customer: {
-        id: 3,
-        name: 'Construtora Sol Nascente',
-        email: 'contato@solnascente.com.br'
-      }
-    }
-  ];  
-
-   const Title = (props) => { 
-    return <h1>{Faturas}</h1>;
-    }
-
-   const InvoiceRow = (props) => {
-    return <tr key={props.object.id}>
-      <th>{props.object.customer.name}</th>
-      <th>{props.object.amount}</th>
-      <th>{props.object.issueDate}</th>
-      <th>{props.object.dueDate}</th>
-      <th>{props.object.status}</th>
-    </tr>;
-   }
-
-   const InvoiceTable = () => {
-    return <table>
-      <thead>
-        <tr>
-          <th>Cliente</th>
-          <th>Valor</th>
-          <th>Data de Emissão</th>
-          <th>Data de Vencimento</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {invoices.map(invoice => 
-          <InvoiceRow key={invoice.id} object={invoice} />
-        )}
-      </tbody>
-    </table>;
-   }
-
-  const App = () => {
-    return <>
-        <Title />
-        <InvoiceTable />
-      </>;
-    }
-
-   const root = ReactDOM.createRoot(container);
-   root.render(<div>
-    <Title/>
-    <InvoiceTable/>
-    </div>);
-
-  </script>
-</body>
+    <script 
+      type="module" 
+      src="./src/main.tsx">
+    </script>
+  </body>
 </html>
