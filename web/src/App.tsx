@@ -38,6 +38,7 @@
 
  export default function App() {
   return <>
-    <InvoiceTable invoices={invoices} />
+    <h1>Corcoiote</h1>
+    <InvoiceTable datas={invoices} />
   </>
  }
