@@ -1,4 +1,4 @@
-import { Invoice } from './InvoiceType.ts';
+import type { Invoice } from './InvoiceType.ts';
 import { formatCurrency, formatDate, formatStatus } from './utils.ts';
 
 
