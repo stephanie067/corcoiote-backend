@@ -1,6 +1,12 @@
 {
  "name": "corcoiote-backend",
  "author": "stephanie"
+ 
 
- "scripts": {}
+ "scripts": {
+  "check:web": "biome check ./web",
+  "fix:web": "biome check --write ./web"
+ },
+ "devDependencies": {}
+ "@biomejs/biome": "2.6.5"
 }
