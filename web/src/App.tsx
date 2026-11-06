@@ -1,7 +1,7 @@
  import InvoicePage from "./InvoicePage.tsx";
 
  export default function App() {
-  return <>
+  return <main>
     <InvoicePage />
-  </>
+  </main>
  }
