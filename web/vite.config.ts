@@ -2,5 +2,10 @@ import react from '@vitejs/plugin-react';
 import {defineConfig} from 'vite';
 
 export default {
-  plugins: [react()]
+  plugins: [react()],
+  server: {
+    proxy: {
+      '/api': 'http://gefina.orender.com'
+    }
+  }
 };

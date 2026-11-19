@@ -1,48 +1,31 @@
 import InvoiceTable from './InvoiceTable.tsx';
 import type { Invoice } from './InvoiceType.ts';
- 
- const invoices: Invoice[] = [{
-  id: 1,
-  amount: 125037,
-  status: 'pending',
-  issueDate: '2024-06-01',
-  dueDate: '2024-06-15',
-  customer: {
-    id: 3,
-    name: 'John Doe',
-    email: 'john.doe@example.com'
-  }
- }, {
-  id: 2,
-  amount: 98765,
-  status: 'paid',
-  issueDate: '2024-06-02',
-  dueDate: '2024-06-16',
-  customer: {
-    id: 7,
-    name: 'Jane Smith',
-    email: 'jane.smith@example.com'
-  }
- }, {
-  id: 3,
-  amount: 54321,
-  status: 'pending',
-  issueDate: '2024-06-03',
-  dueDate: '2024-06-17',
-  customer: {
-    id: 9,
-    name: 'Alice Johnson',
-    email: 'alice.johnson@example.com'
-  }
- }];
+
+import {useState, useEffect} from 'react';
+
+import { getAllInvoices } from './requestInvoice.ts';
+
+import type { Invoice } from './InvoiceType.ts';
 
 export default function InvoicePage() {
-  return <>
+  const [invoices, setInvoices] = useState<Invoice[]>([]);
 
-  <h1>Faturas</h1>
+  useEffect(() => {
+    async function get() {
+      const response = await getAllInvoices();
+      const data = await response.json();
+      setInvoices(data);
+    }
+    get();
+  }, []);
+
+  return (
+   <>
+    <h1>Faturas</h1>
  
-  <div className='panel'>
+    <div className='panel'>
     <InvoiceTable datas={invoices} />
-  </div>
+   </div>
   </>
+  );
 }
